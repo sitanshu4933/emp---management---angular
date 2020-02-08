@@ -1,0 +1,29 @@
+<header>
+  <input type="button" value="+Add Employee" [routerLink]="['/employee/add']" class="btn">
+</header>
+
+<table class="table table-hover">
+    <thead>
+      <th>Name</th>
+      <th>Phone number</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Departrtment</th>
+      <th>Company</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of emps">
+        
+        <td>{{item.Name}}</td>
+        <td>{{item.number}}</td>
+        <td>{{item.Email}}</td>
+        <td>{{item.Age}}</td>
+        <td>{{item.Address}}</td>  
+        <td >{{item.DepartmentName}}</td>
+        <td >{{item.ComanyName}}</td>
+        <td><input type="button" value="Edit" [routerLink]="['/employee/update', item.id]"x class="btn">  </td>     
+        <td><a class="btn text-danger" (click)="onDelete(item.id)"><i class="fa fa-trash"></i></a></td>
+      </tr>
+    </tbody>
+  </table>

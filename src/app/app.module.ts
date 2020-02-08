@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { environment } from 'src/environments/environment';
 import { FormsModule } from '@angular/forms';
+
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { PolicyService } from './policy.service';
+import { TermsService } from './terms.service';
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +24,7 @@ import { PolicyService } from './policy.service';
     AngularFirestoreModule,
     AngularFireDatabaseModule
   ],
-  providers: [PolicyService],
+  providers: [TermsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
