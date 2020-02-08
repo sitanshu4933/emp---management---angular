@@ -17,20 +17,15 @@ export class ListComponent implements OnInit {
     private firestore: AngularFirestore) { }
 
     ngOnInit() {
-      this.service.get_Students().subscribe(data => {
-        this.students = data.map(e => {
-          return {
-            id: e.payload.doc.id,
-            isEdit: false,
-            Name: e.payload.doc.data()['Name'],
-            Age: e.payload.doc.data()['Age'],
-            Address: e.payload.doc.data()['Address'],
-          };
-        })
-        console.log(this.students);
-   
+      var result=[];
+      this.service.get_Students().then(students => {
+        students.forEach(student => {
+          const data = student.data();
+          result.push(data);
+        });
       })
-  }
+      this.students=result;
+    }
   onEdit(item: Policy) {
     this.service.formData = Object.assign({}, item);
   }

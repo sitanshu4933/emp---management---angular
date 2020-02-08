@@ -28,7 +28,7 @@ export class PolicyService {
     this.firestore.doc('Students/' + record_id).delete();
   }
   get_Students() {
-    return this.firestore.collection('Students').snapshotChanges();
+    return this.firestore.collection('Students').ref.get();
   }
   get_Students1(id: any) {
     return this.firestore.collection('Students').doc(id).ref.get();
